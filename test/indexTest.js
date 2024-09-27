@@ -1,7 +1,40 @@
+let cats = ["Milo", "Otis", "Garfield"];
+
+function destructivelyAppendCat(name) {
+  cats.push(name);
+}
+
+function destructivelyPrependCat(name) {
+  cats.unshift(name);  
+}
+
+function destructivelyRemoveLastCat() {
+  cats.pop(); // Removes the last cat from the array
+}
+function destructivelyRemoveFirstCat() {
+  cats.shift(); // Removes the first cat from the array
+}
+function appendCat(name) {
+  return [...cats, name]; // Creates a new array with the new cat appended
+}
+
+function prependCat(name) {
+  return [name, ...cats]; // Creates a new array with the new cat prepended
+}
+
+function removeLastCat() {
+  return cats.slice(0, -1); // Creates a new array without the last cat
+}
+
+function removeFirstCat() {
+  return cats.slice(1); // Creates a new array without the first cat
+}
+
+
 require ( './helpers.js' );
 
 describe('index.js', function () {
-  describe('cats', function () {
+  describe ('cats', function () {
     it('is assigned an initial value of ["Milo", "Otis", "Garfield"]', function () {
       expect(cats).to.have.ordered.members(["Milo", "Otis", "Garfield"]);
     });
